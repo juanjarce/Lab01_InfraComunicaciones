@@ -321,7 +321,7 @@ public class Lab01 {
     /**
      * Divide una cadena dada en partes iguales, tiene en cuenta el residuo.
      * @param cadena
-     * @param longitudEncabezado
+     * @param longitudParticiones
      * @return
      */
     public static String[] dividirCadenaEnParteIguales(String cadena, int longitudParticiones) {
