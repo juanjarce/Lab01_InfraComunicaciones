@@ -1,8 +1,4 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-
 import java.util.Arrays;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Lab01 {
@@ -12,59 +8,80 @@ public class Lab01 {
         // 1. Conversiones entre entero decimal, binario y hexadecimal.
 
         // a. Convertir un entero decimal a binario, especificando el ancho en bits.
-        String decToBin = convertDecToBin(5, 6);
-        System.out.println(decToBin);
+        int decimal1 = 5;
+        int anchoBitsDecToBin = 6;
+        String decToBin = convertDecToBin(decimal1, anchoBitsDecToBin);
+        System.out.printf("• Se convierte el decimal %d a binario en un ancho de %d bits: %s%n", decimal1, anchoBitsDecToBin, decToBin);
 
         // b. Convertir un número binario a entero decimal.
-        String binToDec = convertBinToDec("0010000");
-        System.out.println(binToDec);
+        String binario = "0010000";
+        String binToDec = convertBinToDec(binario);
+        System.out.printf("• Se convierte el binario %s a decimal: %s%n", binario, binToDec);
 
-        // c. Convertir un número de entero decimal a hexadecimal, especificando el ancho en dígitos
-        //hexadecimales.
-        String decToHex = convertDecToHex(1523, 8);
-        System.out.println(decToHex);
+        // c. Convertir un número entero decimal a hexadecimal, especificando el ancho en dígitos hexadecimales.
+        int decimalAHexadecimal = 1523;
+        int anchoBitsDecToHex = 8;
+        String decToHex = convertDecToHex(decimalAHexadecimal, anchoBitsDecToHex);
+        System.out.printf("• Se convierte el decimal %d a hexadecimal en un ancho de %d dígitos: %s%n", decimalAHexadecimal, anchoBitsDecToHex, decToHex);
 
         // d. Convertir un número hexadecimal a entero decimal.
-        String hexToDec = convertHexToDec("5F3");
-        System.out.println(hexToDec);
+        String numeroHexadecimal = "5F3";
+        String hexToDec = convertHexToDec(numeroHexadecimal);
+        System.out.printf("• Se convierte el hexadecimal %s a decimal: %s%n", numeroHexadecimal, hexToDec);
 
-        // e. Convertir un número de binario a hexadecimal.
-        String res5 = convertBinToHex("100001110");
-        System.out.println(res5);
+        // e. Convertir un número binario a hexadecimal.
+        String numeroBinarioAHexadecimal = "100001110";
+        String binToHex = convertBinToHex(numeroBinarioAHexadecimal);
+        System.out.printf("• Se convierte el binario %s a hexadecimal: %s%n", numeroBinarioAHexadecimal, binToHex);
 
-        // f. Convertir un número de hexadecimal a binario.
-        String res6 = convertHexToBin("10E");
-        System.out.println(res6);
+        // f. Convertir un número hexadecimal a binario.
+        String numeroHexadecimalABinario = "10E";
+        String hexToBin = convertHexToBin(numeroHexadecimalABinario);
+        System.out.printf("• Se convierte el hexadecimal %s a binario: %s%n", numeroHexadecimalABinario, hexToBin);
 
         //------------------------------------------------------------------------------------------------------------------------
         // 2. Segmentación de una cadena de caracteres en partes de tamaño fijo.
 
-        String cadenaGenerada = generarCadena(30);
-        System.out.println(cadenaGenerada);
+        // a. Crear una cadena de tamaño especificado.
+        int magnitudCadenaAbecedario = 30;
+        String cadenaGenerada = generarCadena(magnitudCadenaAbecedario);
+        System.out.printf("• Cadena de longitud %s: %s%n",magnitudCadenaAbecedario,cadenaGenerada);
 
-        String[] cadenasPorPartesIguales = dividirCadenaEnParteIguales(generarCadena(4), 2);
-        System.out.println(Arrays.toString(cadenasPorPartesIguales));
+        // b. Dividir una cadena en partes iguales de tamaño especificado.
+        int magnitudCadenaPorPartesIguales = 4;
+        int magnitudParticiones = 2;
+        String[] cadenasPorPartesIguales = dividirCadenaEnParteIguales(generarCadena(magnitudCadenaPorPartesIguales), magnitudParticiones);
+        System.out.printf("• Cadena por partes iguales de magnitud %s: %s%n", magnitudParticiones,  Arrays.toString(cadenasPorPartesIguales));
 
         //------------------------------------------------------------------------------------------------------------------------
         // 3. Segmentación de una cadena de caracteres en partes de tamaño variable.
 
-        String [] cadenasSeparadasEnDos = dividirCadenaEnDos(20, 5);
-        System.out.println(Arrays.toString(cadenasSeparadasEnDos));
+        // a. Dividir una cadena en dos partes.
+        int longitudCadenaDosPartes = 20;
+        int longitudEncabezadoDosPartes = 5;
+        String[] cadenasSeparadasEnDos = dividirCadenaEnDos(longitudCadenaDosPartes, longitudEncabezadoDosPartes);
+        System.out.printf("• Cadenas separadas en dos partes de tamaño de encabezado %s a partir de una longitud total de %s: %s%n", longitudEncabezadoDosPartes, longitudCadenaDosPartes, Arrays.toString(cadenasSeparadasEnDos));
 
-        String [] cadenasSeparadasEnTres = dividirCadenaEnTres(22, 6, 8);
-        System.out.println(Arrays.toString(cadenasSeparadasEnTres));
+        // b. Dividir una cadena en tres partes.
+        int longitudCadenaTresPartes = 22;
+        int longitudPrimerEncabezadoTresPartes = 6;
+        int longitudSegundoEncabezadoTresPartes = 8;
+        String[] cadenasSeparadasEnTres = dividirCadenaEnTres(longitudCadenaTresPartes, longitudPrimerEncabezadoTresPartes, longitudSegundoEncabezadoTresPartes);
+        System.out.printf("• Cadenas separadas en tres partes de tamaño de primer encabezado %s y segundo encabezado %s a partir de una longitud total de %s: %s%n", longitudPrimerEncabezadoTresPartes, longitudSegundoEncabezadoTresPartes, longitudCadenaTresPartes, Arrays.toString(cadenasSeparadasEnTres));
 
+        // c. Dividir una cadena en partes según volúmenes indicados.
         int[] volumenes = {4, 5, 2, 3, 8};
-        String[] cadenasPorPartesIndicadas = dividirCadenaPorVolumenesIndicados(generarCadena(32), volumenes);
-        System.out.println(Arrays.toString(cadenasPorPartesIndicadas));
+        int cantidadCaracteresCadenaPartesIndicadas = 32;
+        String[] cadenasPorPartesIndicadas = dividirCadenaPorVolumenesIndicados(generarCadena(cantidadCaracteresCadenaPartesIndicadas), volumenes);
+        System.out.printf("• Cadena de longitud %s divididas según los volúmenes indicados %s: %s%n", cantidadCaracteresCadenaPartesIndicadas, Arrays.toString(volumenes), Arrays.toString(cadenasPorPartesIndicadas));
 
         //------------------------------------------------------------------------------------------------------------------------
         // 4. Unión de partes de una cadena.
+
+        // a.Dadas las partes que conforman cada cadena, unirlas para conformarla completamente.
         String[] partesCadena = {"H", "O", "L", "A"};
         String cadenaCompleta = construirCadena(partesCadena);
-        System.out.println(cadenaCompleta);
-        
-
+        System.out.printf("• La cadena completa construida a partir de las partes %s es: %s%n", Arrays.toString(partesCadena), cadenaCompleta);
     }
 
     //----------------------- PUNTO 1 -------------------------------------------------------------------------------------------
@@ -349,6 +366,13 @@ public class Lab01 {
 
     //------------------------ PUNTO 3 -----------------------------------------------------------------------------------
 
+    /**
+     * Dada una cadena, dividirla en dos partes.
+     * @param longitudCadena autoexplicativo.
+     * @param longitudEncabezado autoexplicativo.
+     * jeje.
+     * @return arreglo de String[] con dos elementos.
+     */
     public static String[] dividirCadenaEnDos(int longitudCadena, int longitudEncabezado) {
 
         String cadena = generarCadena(longitudCadena);
@@ -360,6 +384,14 @@ public class Lab01 {
         return cadenas;
     }
 
+    /**
+     * Dada una cadena (String), dividirla en tres partes.
+     * @param longitudCadena autoexplicativo.
+     * @param longitudPrimerEncabezado autoexplicativo.
+     * @param longitudSegundoEncabezado autoexplicativo. 
+     * jeje
+     * @return arreglo de String[] con tres elementos.
+     */
     public static String[] dividirCadenaEnTres(int longitudCadena, int longitudPrimerEncabezado, int longitudSegundoEncabezado) {
 
         String cadena = generarCadena(longitudCadena);
@@ -373,37 +405,53 @@ public class Lab01 {
 
     }
     
+    /**
+     * Dada una cadena de tamaño específico y un arreglo de enteros que especifican tamaños.
+     * Separar las partes de una cadena a un arreglo String[].
+     * Se debe validar que la suma del arreglo de enteros no sea mayor  a la cadena, si la suma es menor se debe añadir el trozo de cadena que falte como otro elemento del arreglo de cadenas resultante.
+     * 
+     * @param cadena 
+     * @param volumenes
+     * @return string[]
+     */
     public static String[] dividirCadenaPorVolumenesIndicados(String cadena, int[] volumenes) {
 
+        // Creo un arreglo de enteros auxiliar dado el caso de que haya un trozo de cadena que falte por la suma de los volúmenes.
         int[] volumenesFinales;
 
+        // Verifico que los volúmenes no excedan el tamaño de la cadena, si lo exceden retorna null.
         int sumaVolumenes = Arrays.stream(volumenes).sum();
         if (sumaVolumenes > cadena.length()) return null;
 
+        // Calculo el número de indice que va a tener el arreglo de cadenas.
         int numeroIndicesArreglo = volumenes.length;
+        // Si la suma de los volúmenes del arreglo de enteros es menor a la longitud de la cadena, le asigno a volumenesFinales un elemento más que contiene el tamaño del trozo restante de la cadena. De lo contrario volumenesFinales es igual a la longitud de la cadena y no hay necesidad de crear un nuevo arreglo.
         if (sumaVolumenes < cadena.length())  {
             numeroIndicesArreglo++; 
             int nuevoElemento = cadena.length() - sumaVolumenes;
-
-            // Coloco el nuevo arreglo con un espacio extra.
             volumenesFinales = Arrays.copyOf(volumenes, volumenes.length + 1);
-    
-            // Agrego el nuevo elemento a volumenes finales.
             volumenesFinales[volumenes.length] = nuevoElemento;
         } else {
             volumenesFinales = volumenes; // Redundate, lo sé. No se me ocurrió algo mejor.
         }
+
+        // Creo el arreglo de cadenas con el tamaño fijo calculado.
         String[] cadenas = new String[numeroIndicesArreglo];
 
+        // Convierto la cadena en un arreglo de carácteres para iterar sobre ella (o elle, no quiero hacer missgender).
         char[] arregloDeLaCadena = cadena.toCharArray();
 
+        // Declaro tres índices, indiceArregloCadenas para gestionar el arreglo de cadenas y cuando debe aumentar. indiceArregloVolumenes para cambiar la cantidad de carácteres que se deben añadir a una cadena temporal e indiceRecorreCadena que recorre toda la cadena para ir poniendo en un orden correcto todas las cadenas temporales. ¿Cómo mejorar estos índices? No sé.
         int indiceArregloCadenas = 0;
         int indiceArregloVolumenes = 0;
         int indiceRecorreCadena = 0;
+        // Itero mientras no se hayan pasado por todos los elementos del arreglo de cadenas.
         while (indiceArregloCadenas < numeroIndicesArreglo) {
 
+            // Construyo una cadena temporal/actual.
             StringBuilder cadenaActual = new StringBuilder();
 
+            // Escojo una longitud de los volúmenes, y añado carácteres hasta que se agote esa longitud. Apenas veo que esa condición dentro del for es innecesaria, la voy a dejar igual, le cogí cariño.
             int longitudIndiceActual = volumenesFinales[indiceArregloVolumenes];
             for (int i = 0; i < longitudIndiceActual; i++) {
                 if (indiceRecorreCadena < arregloDeLaCadena.length) {
@@ -412,6 +460,7 @@ public class Lab01 {
                 }
             }
 
+            // Añado la cadena temporal al arreglo de cadenas y aumento los índices necesarios.
             cadenas[indiceArregloCadenas] = cadenaActual.toString();
             indiceArregloCadenas++;
             indiceArregloVolumenes++;
@@ -422,6 +471,12 @@ public class Lab01 {
 
     //------------------------ PUNTO 4 -----------------------------------------------------------------------------------
 
+    /**
+     * Dada las partes que conforman una cadena, unirlas para conformarla completamente.
+     * No dieron ni una firma del método los profesor, sacudiendo mi cabeza.
+     * @param partesCadena
+     * @return cadenaCompleta
+     */
     public static String construirCadena (String[] partesCadena) {
 
         String cadenaCompleta = Arrays.stream(partesCadena).collect(Collectors.joining()); // Gracias a dios por los flujos! (Sobre todo los de las... )
